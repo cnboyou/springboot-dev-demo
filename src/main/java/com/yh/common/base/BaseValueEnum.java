@@ -1,4 +1,4 @@
-package com.yh.common.model;
+package com.yh.common.base;
 
 /**
  * ClassName: CodeEnum
