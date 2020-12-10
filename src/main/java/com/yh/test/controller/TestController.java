@@ -23,7 +23,6 @@ public class TestController {
     @GetMapping("/test1")
     public Result test() {
         Result result = new Result();
-
         return ResultUtil.success();
     }
 
