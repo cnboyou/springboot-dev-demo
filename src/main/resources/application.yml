@@ -1,0 +1,53 @@
+server:
+  port: 9900
+spring:
+  #db
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    #公共mysql
+    url: jdbc:mysql://39.108.251.115:3306/test?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=UTC
+    username: root
+    #公共mysql password
+    password: wyh123456
+    type: com.alibaba.druid.pool.DruidDataSource
+    druid:
+      initial-size: 5
+      min-idle: 5
+      max-active: 20
+      test-on-borrow: true
+      filters: stat,wall
+      filter:
+        wall:
+          config:
+            condition-and-alway-false-allow: true
+          enabled: true
+  ##base配置
+  session:
+    store-type: redis
+
+  ##redis
+  ##redis
+  redis:
+    database: 10
+    #host: 127.0.0.1
+    host: 39.108.251.115
+    namespace: base:session
+    jedis:
+      pool:
+        #最大连接数据库连接数,设 0 为没有限制
+        max-active: 8
+        #最大等待连接中的数量,设 0 为没有限制
+        max-idle: 8
+        #最大建立连接等待时间。如果超过此时间将接到异常。设为-1表示无限制。
+        max-wait: -1ms
+        #最小等待连接中的数量,设 0 为没有限制
+        min-idle: 0
+    lettuce:
+      pool:
+        max-active: 8
+        max-idle: 8
+        max-wait: -1ms
+        min-idle: 0
+      shutdown-timeout: 100ms
+    password: 123456
+    port: 6379
