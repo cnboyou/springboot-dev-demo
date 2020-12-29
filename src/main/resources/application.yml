@@ -28,6 +28,14 @@ spring:
       multipart:
         max-file-size: 2000MB
         max-request-size: 2000MB
+  mail:
+    default-encoding: utf-8
+    # 主机地址
+    host: smtp.126.com
+    # 邮箱名
+    username: xxx@126.com
+    # 授权码（不是密码）
+    password: xxxxxxxxxx
 
   ##redis
   ##redis
@@ -62,3 +70,14 @@ upload:
   path: /static/ #存储根路径
 
 baseip: 127.0.0.1
+
+open:
+  auth: true
+
+# 自定义jwt key
+jwt:
+  tokenHeader: Authorization #JWT存储的请求头
+  secret: mySecret #JWT加解密使用的密钥
+  expiration: 604800 #JWT的超期限时间(60*60*24)
+  tokenHead: Bearer  #JWT负载中拿到开头
+

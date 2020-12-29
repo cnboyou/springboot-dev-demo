@@ -1,7 +1,6 @@
 package com.yh.config;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.scheduling.annotation.EnableAsync;
@@ -19,9 +18,9 @@ import java.util.concurrent.ThreadPoolExecutor;
  */
 @Configuration
 @EnableAsync
+@Slf4j
 public class ExecutorConfig {
 
-    private static final Logger logger = LoggerFactory.getLogger(ExecutorConfig.class);
     public static Integer smsAsynSize = Runtime.getRuntime().availableProcessors();
     /**
      * TODO: 此方法名称为asyncPromiseExecutor，即在spring中注入了一个名字为asyncPromiseExecutor的bean
@@ -48,7 +47,7 @@ public class ExecutorConfig {
         executor.setRejectedExecutionHandler(new ThreadPoolExecutor.CallerRunsPolicy());
         //初始化执行器
         executor.initialize();
-        logger.info("线程池A-Thread配置成功");
+        log.info("线程池A-Thread配置成功");
         return executor;
     }
 

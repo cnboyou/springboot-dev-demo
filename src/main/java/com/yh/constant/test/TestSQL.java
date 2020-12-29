@@ -11,4 +11,8 @@ public interface TestSQL {
 
     String TEST_TABLE_NAME = "test_table_name";
 
+    String TEST_ID = "test_id";
+
+    String TEST_NAME = "test_name";
+
 }

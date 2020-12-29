@@ -15,7 +15,11 @@ public enum BaseResultEnum implements CodeEnum {
     ERROR(500,"未知异常"),
     FILE_UPLOAD_ERROR(600,"文件上传错误"),
     ERROR_EMPTY_RESULT(1001,"查询结果为空"),
-    ERROR_INCOMPLETE_RESULT(1002,"请求参数不全");
+    ERROR_INCOMPLETE_RESULT(1002,"请求参数不全"),
+    VALIDATE_FAILED(404, "参数检验失败"),
+    UNAUTHORIZED(401, "暂未登录或token已经过期"),
+    FORBIDDEN(403, "没有相关权限"),
+    ;
 
     private Integer code;
     private String msg;

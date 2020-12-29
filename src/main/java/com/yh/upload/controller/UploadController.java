@@ -6,6 +6,9 @@ import com.yh.common.result.Result;
 import com.yh.common.result.ResultUtil;
 import com.yh.upload.model.BaseUploadInfo;
 import com.yh.upload.service.UploadService;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiImplicitParam;
+import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -26,6 +29,7 @@ import static com.yh.common.result.BaseResultEnum.FILE_UPLOAD_ERROR;
  * @Date: 2020/12/29 14:17
  * @Description: TODO
  */
+@Api(tags = "文件上传接口")
 @RestController
 @Slf4j
 @RequestMapping("/upload")
@@ -38,6 +42,8 @@ public class UploadController {
         this.uploadService = uploadService;
     }
 
+    @ApiOperation(value = "上传文件", notes = "单文件上传")
+    @ApiImplicitParam(name = "file", value = "文件", dataType = "MultipartFile", required = true)
     @PostMapping("/file")
     public Result<BaseResultEnum> uploadFile(@RequestParam(value = "file") MultipartFile file) throws IOException {
         BaseUploadInfo uploadInfo = uploadService.uploadFile(file);
@@ -47,6 +53,8 @@ public class UploadController {
         return ResultUtil.success(uploadInfo);
     }
 
+    @ApiOperation(value = "上传文件", notes = "多文件上传")
+    @ApiImplicitParam(name = "files", value = "文件", dataType = "MultipartFile[]", required = true)
     @PostMapping("/files")
     public Result<BaseResultEnum> uploadFiles(@RequestParam(value = "files") MultipartFile[] files) throws IOException {
         List<BaseUploadInfo> uploadInfos = uploadService.uploadFiles(files);
