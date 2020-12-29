@@ -24,6 +24,10 @@ spring:
   ##base配置
   session:
     store-type: redis
+  servlet:
+      multipart:
+        max-file-size: 2000MB
+        max-request-size: 2000MB
 
   ##redis
   ##redis
@@ -51,3 +55,10 @@ spring:
       shutdown-timeout: 100ms
     password: 123456
     port: 6379
+
+#文件上传返回地址 nginx中配置路径映射
+upload:
+  url: http://${baseip}:9390 #访问根路径
+  path: /static/ #存储根路径
+
+baseip: 127.0.0.1

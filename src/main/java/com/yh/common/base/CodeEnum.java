@@ -1,4 +1,4 @@
-package com.yh.common.result;
+package com.yh.common.base;
 
 /**
  * ClassName: CodeEnum
@@ -8,7 +8,7 @@ package com.yh.common.result;
  * @Description: TODO
  */
 public interface CodeEnum {
-    Integer getCode();
 
+    Integer getCode();
     String getMsg();
 }

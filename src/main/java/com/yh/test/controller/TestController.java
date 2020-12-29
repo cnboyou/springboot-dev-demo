@@ -2,8 +2,7 @@ package com.yh.test.controller;
 
 import com.yh.common.result.Result;
 import com.yh.common.result.ResultUtil;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -17,8 +16,8 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 @RequestMapping(value = "/test", produces = {"application/json;charset=UTF-8"})
+@Slf4j
 public class TestController {
-    private static final Logger logger = LoggerFactory.getLogger(TestController.class);
 
     @GetMapping("/test1")
     public Result test() {

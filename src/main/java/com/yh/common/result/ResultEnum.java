@@ -1,5 +1,7 @@
 package com.yh.common.result;
 
+import com.yh.common.base.CodeEnum;
+
 /**
  * ClassName: ResultEnum
  *
@@ -21,11 +23,11 @@ public enum ResultEnum implements CodeEnum {
 
     @Override
     public Integer getCode() {
-        return code;
+        return null;
     }
 
     @Override
     public String getMsg() {
-        return msg;
+        return null;
     }
 }

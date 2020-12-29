@@ -1,5 +1,6 @@
 package com.yh.common.result;
 
+import com.yh.common.base.CodeEnum;
 import lombok.NoArgsConstructor;
 
 /**
